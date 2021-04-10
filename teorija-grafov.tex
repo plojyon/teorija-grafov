@@ -213,10 +213,13 @@
 	\begin{definition}[Petersenov graf]
 		$$V(P_{n,k}) = \left\lbrace u_0, \ldots, u_{n-1} \right\rbrace \dot\cup \left\lbrace v_0, \ldots, v_{n-1} \right\rbrace $$  % \dot\cup = diskunktivna unija
 		$$E(P_{n,k}) = \left\lbrace\left\lbrace u_i,u_{i+1}\right\rbrace: i \in Z_n\right\rbrace \dot\cup \left\lbrace \left\lbrace u_i,v_i \right\rbrace: i \in Z_n \right\rbrace \dot\cup \left\lbrace\left\lbrace v_i,v_{i+n} \right\rbrace: i \in Z_n\right\rbrace$$ 
-		U-ji so povezani v cikel. Enakole"zni Uji in Vji so povezani. Vji so povezani s preskoki po k. \\
+		U-ji so povezani v cikel. Enakole"zni Uji in Vji so povezani. Vji so povezani s preskoki po k.
+		\\
 		\includegraphics{petersenovi51}
-		\includegraphics{petersenovi52} \\
-		Op: Petersenov graf je nek bad boy ker pokvari veliko izrekov.
+		% no line break here, to keep both images side by side
+		\includegraphics{petersenovi52}
+		\\
+		Petersenov graf je nek bad boy ker pokvari veliko izrekov.
 	\end{definition}
 
 	Limitacije:
@@ -465,14 +468,14 @@
 		Naj bosta $u$,$v$ nesosednji vozli"s"ci $G$. Tedaj je najve"cje "stevilo notranje disjunktnih $uv$ poti enako mo"ci najkraj"sega prereza $S$, za katerega sta $u$ in $v$ v razli"cnih komponentah $G-S$.
 	\end{theorem}
 	\begin{proof}
-		Dokaz za oba se nahaja v magisterskem programu. Lp
+		Dokaz za oba izreka se nahaja v magisterskem programu. Lp
 	\end{proof}
 	
 	\begin{definition}[Povezavna povezanost $G$]
-		je najmanjse stevilo povezav, ki jih moramo odstraniti, da pove"camo "stevilo komponent $G$.
+		Je najmanj"se "stevilo povezav, ki jih moramo odstraniti, da pove"camo "stevilo komponent $G$.
 	\end{definition}
 
-	$\kappa (G) \leq \kappa '(G) \leq \delta(G)$
+	\[ \kappa (G) \leq \kappa '(G) \leq \delta(G) \]
 	% delta je minimalna stopnja vozlisca v $G$
 	
 	\section{Drevesa}
