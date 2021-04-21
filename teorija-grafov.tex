@@ -447,7 +447,7 @@
 
 	$Q_n = (K_2)^n$
 	
-	\begin{definition}[Prerezno vosli"s"ce]
+	\begin{definition}[Prerezno vozli"s"ce]
 		$v$ je prerezno, "ce ima $G-v$ ve"c komponent kot $G$.
 	\end{definition}
 	\begin{definition}[Prevezna povezava]
@@ -538,7 +538,7 @@
 	\begin{theorem}
 		"Ce ima drevo vsaj 2 vozli"s"ci, ima vsaj 2 lista.
 		\begin{proof}
-			Naj bo $x$ "stevilo listo v $T$. Po lemi o rokovanju velja:
+			Naj bo $x$ "stevilo listov v $T$. Po lemi o rokovanju velja:
 			$$ 2|E(T)| = \sum_{v \in V(T)}deg(v) \geq x + 2(|V(T)| - x) $$
 			$$\Rightarrow x \geq 2$$
 		\end{proof}
@@ -565,7 +565,7 @@
 	\end{claim}
 	
 	\begin{definition}[Laplaceova matrika $L(G)$]
-		Laplaceova matrika multigrafa $G$ je kvadratna matrika, katere vrstice in stolpci so indeksirani z vosli"s"ci grafa $G$, elementi $L(G)$ pa so dolo"ceni takole:
+		Laplaceova matrika multigrafa $G$ je kvadratna matrika, katere vrstice in stolpci so indeksirani z vozli"s"ci grafa $G$, elementi $L(G)$ pa so dolo"ceni takole:
 		$$ L(G)_{ii} = deg(v_i)$$
 		$$ L(G)_{ij_{i \neq j}} = -\text{"stevilo povezav med }v_i\text{ in }v_j $$
 		"Ce je $G$ graf, je $L(G)_{ij} = -1$, "ce je $v_iv_j \in E(G)$, sicer 0.
@@ -691,7 +691,7 @@
 	\begin{claim}
 		$ K_{m,n} $ je Hamiltonov $ \iff m=n $
 		\begin{proof}
-			($\Rightarrow$) Naj bo $m \neq n$ in B"SS $m < n$. Postavimo $S=A$. Tedaj ima graf $K_{m,n}-S$ natanko $n$ komponent (n izoliranih vosli"s"c). \\
+			($\Rightarrow$) Naj bo $m \neq n$ in B"SS $m < n$. Postavimo $S=A$. Tedaj ima graf $K_{m,n}-S$ natanko $n$ komponent (n izoliranih vozli"s"c). \\
 			($\Leftarrow$)  Opazujmo $K_{m,n}$. Brez te"zav najdemo Hamiltonov cikel.
 		\end{proof}
 	\end{claim}
@@ -915,7 +915,7 @@
 	\subsection{Po"zre"sni algoritem barvanja}
 	Barve si od tu dalje predstavljamo kot naravna "stevila. Natan"cneje, $k$-barvanje pomeni $c: V(G) \rightarrow [k]$
 	
-	Naj bo G graf z vosli"s"ci $v_1,v_2,...,v_k$. Po tem vrstnem redu barvamo vozli"s"ca tako, da uporabimo najmanj"so mo"zno barvo (najmanj"sa, ki "se ni uporabljena na nobenem od sosedov).\\
+	Naj bo G graf z vozli"s"ci $v_1,v_2,...,v_k$. Po tem vrstnem redu barvamo vozli"s"ca tako, da uporabimo najmanj"so mo"zno barvo (najmanj"sa, ki "se ni uporabljena na nobenem od sosedov).\\
 	O"citno je rezultat algoritma odvisen od ostevil"cenja vozli"s"c.
 	
 	\begin{claim}
