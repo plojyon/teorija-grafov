@@ -28,6 +28,12 @@
 \newtheorem{claim}{Trditev}[section]
 \newtheorem{theorem}{Izrek}[section]
 
+% common sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
 % I like my squares DARK
 \renewcommand\qedsymbol{$\blacksquare$}
 
@@ -161,12 +167,12 @@
 		\\
 		$V(P_n) = \left\lbrace v_1, v_2, \ldots ,v_n \right\rbrace$; 
 		\\
-		$E(P_n) = \left\lbrace\left\lbrace v_i, v_{i+1} \right\rbrace : i \in [n-1]\right\rbrace = \left\lbrace \left\lbrace i, i+1 \right\rbrace; i \in Z_n \backslash \left\lbrace n-1\right\rbrace\right\rbrace$ \\ 
+		$E(P_n) = \left\lbrace\left\lbrace v_i, v_{i+1} \right\rbrace : i \in [n-1]\right\rbrace = \left\lbrace \left\lbrace i, i+1 \right\rbrace; i \in \Z_n \backslash \left\lbrace n-1\right\rbrace\right\rbrace$ \\ 
 	\end{definition}
 	\begin{definition}[Cikel na n vozli"s"cih]
 		$C_n = (V(C_n), E(C_n))$ \\
-		$V(C_n) = Z_n$ \\
-		$E(C_n) = \left\lbrace\left\lbrace i,i+1\right\rbrace; i \in Z_n\right\rbrace$
+		$V(C_n) = \Z_n$ \\
+		$E(C_n) = \left\lbrace\left\lbrace i,i+1\right\rbrace; i \in \Z_n\right\rbrace$
 	\end{definition}
 
 	Limitacije:
@@ -211,8 +217,8 @@
 	\subsection{Posplo"seni Petersenovi grafi $P_{n,k}$} 
 	\begin{definition}[Petersenov graf]
 		$$V(P_{n,k}) = \left\lbrace u_0, \ldots, u_{n-1} \right\rbrace \dot\cup \left\lbrace v_0, \ldots, v_{n-1} \right\rbrace $$  % \dot\cup = diskunktivna unija
-		$$E(P_{n,k}) = \left\lbrace\left\lbrace u_i,u_{i+1}\right\rbrace: i \in Z_n\right\rbrace \dot\cup \left\lbrace \left\lbrace u_i,v_i \right\rbrace: i \in Z_n \right\rbrace \dot\cup \left\lbrace\left\lbrace v_i,v_{i+n} \right\rbrace: i \in Z_n\right\rbrace$$ 
-		U-ji so povezani v cikel. Enakole"zni Uji in Vji so povezani. Vji so povezani s preskoki po k.
+		$$E(P_{n,k}) = \left\lbrace\left\lbrace u_i,u_{i+1}\right\rbrace: i \in \Z_n\right\rbrace \dot\cup \left\lbrace \left\lbrace u_i,v_i \right\rbrace: i \in \Z_n \right\rbrace \dot\cup \left\lbrace\left\lbrace v_i,v_{i+n} \right\rbrace: i \in \Z_n\right\rbrace$$ 
+		$u$-ji so povezani v cikel. Enakole"zni $u$-ji in $v$-ji so povezani. $v$-ji so povezani s preskoki po $k$.
 		\\
 		\includegraphics{petersenovi51}
 		% no line break here, to keep both images side by side
@@ -229,12 +235,11 @@
 
 	
 	
-	\begin{definition}[Kro"zni grafi] 
-		$S \subseteq Z_n; 0 \notin S \land s \in S \implies (n-s) \in S$
+	\begin{definition}[Kro"zni grafi]
+		Vzemimo poljubno mno"zico $S \subset \Z_n$, za katero velja $0 \notin S \land (s \in S \implies (n-s) \in S)$. Tedaj je kro"zni graf $\operatorname{Cir}(n, S)$ tak graf, katerega vozli"s"ca tvori $\Z_n$, povezave pa $\left\lbrace uv, v-u \in S\right\rbrace$.
 	\end{definition}
-	$Cir(n, S)$: vozli"s"ca tvori $Z_n$, povezave: $\left\lbrace uv, v-u \in S\right\rbrace$ \\ 
-	$K_n = Cir(n, [n-1])$ \\ 
-	$C_n = Cir(n, \left\lbrace1, n-1\right\rbrace)$
+	$K_n = \operatorname{Cir}(n, [n-1])$ \\ 
+	$C_n = \operatorname{Cir}(n, \left\lbrace1, n-1\right\rbrace)$
 	
 	\begin{definition}[Enostaven graf]
 		Graf je enostaven, "ce nima ve"ckratnih povezav ali zank. Za nas je graf $\iff$ enostaven graf.
@@ -341,7 +346,7 @@
 		Graf $G$ je dvodelen natanko tedaj ko ne vsebuje lihih ciklov. 
 		\begin{proof} 
 			($\Rightarrow$) lihi cikli niso dvodelni, zato tudi graf z lihim ciklom ne more biti dvodelen. \\ 
-			($\Leftarrow$) predpostavimo lahko, da je $G$ povezan. ("Ce ni povezan, je dvodelen natanko tedaj, ko so vse komponente dvodelne). Vzemimo vozli"s"ce $v_0$. Definirajmo $A=\left\lbrace x \in V(G): d(v_0, x) \text{ je sodo}\right\rbrace$ in $B=\left\lbrace x \in V(G): d(v0, x) \text{ je liho}\right\rbrace$ (tukaj nam pomaga, da smo predpostavili povezanost, saj nam neskon"cnost ne dela preglavic). O"citno je $A \cap B = \left\lbrace/\right\rbrace$. $A \cup B = V(G)$. Poka"zimo, da je $(A,B)$ dvodelna razdelitev (znotraj $A$ in znotraj $B$ ni povezav): naj bosta $u,w \in A$. Lo"cimo 3 primere:
+			($\Leftarrow$) predpostavimo lahko, da je $G$ povezan. ("Ce ni povezan, je dvodelen natanko tedaj, ko so vse komponente dvodelne). Vzemimo vozli"s"ce $v_0$. Definirajmo $A=\left\lbrace x \in V(G): d(v_0, x) \text{ je sodo}\right\rbrace$ in $B=\left\lbrace x \in V(G): d(v_0, x) \text{ je liho}\right\rbrace$ (tukaj nam pomaga, da smo predpostavili povezanost, saj nam morebitna neskon"cna razdalja ne dela preglavic). O"citno je $A \cap B = \emptyset \land A \cup B = V(G)$. Poka"zimo, da je $(A,B)$ dvodelna razdelitev (znotraj $A$ in znotraj $B$ ni povezav): naj bosta $u,w \in A$. Lo"cimo 3 primere:
 			\begin{enumerate}
 				\item $|d(v_0, u) - d(v_0, w)| \geq 2$ \\
 				Tedaj $uw \not\in E(G)$. To je res, sicer bi dobili:
@@ -413,7 +418,7 @@
 	\end{claim}
 	
 	\subsection{Subdividiranje} 
-	"Ce povezavo nadomestimo s potjo dol"zine 2, smo povezavo subdividirali. Oznaka: $G^+(E)$ \\ 
+	"Ce povezavo nadomestimo s potjo dol"zine 2, smo povezavo subdividirali. Ozna"cimo $G^+(E)$ \\ 
 	
 	\begin{definition}[Subdividiranje]
 		Neformalno: nekaj povezav nadomestimo s potmi. \\
@@ -426,8 +431,8 @@
 	
 	\begin{definition}[Glajenje vozli"s"c] Neformalno: obratna operacija subdividiranja. \\
 		Formalno: 
-		$$ V(G-(w)) = V(G) \backslash \left\lbrace w\right\rbrace $$ 
-		$$ E(G-(w)) = (E(G) \backslash \left\lbrace uw, vw \right\rbrace) \cup \left\lbrace uv \right\rbrace $$
+		$$ V(G- \lbrace w \rbrace )) = V(G) \backslash \left\lbrace w\right\rbrace $$ 
+		$$ E(G- \lbrace w \rbrace ) = (E(G) \backslash \left\lbrace uw, vw \right\rbrace) \cup \left\lbrace uv \right\rbrace $$
 	\end{definition}
 	
 	\begin{definition}[Homeomorfizem]
@@ -440,24 +445,26 @@
 	\end{definition}
 	Lastnosti: (monoid)
 	\begin{itemize}
-		\item simetri"cnost
+		\item komutativnost
 		\item asociativnost
 		\item enota
 	\end{itemize}
 
-	$Q_n = (K_2)^n$
+	\begin{claim}
+		$Q_n = (K_2)^n$
+	\end{claim}
 	
 	\begin{definition}[Prerezno vozli"s"ce]
 		$v$ je prerezno, "ce ima $G-v$ ve"c komponent kot $G$.
 	\end{definition}
-	\begin{definition}[Prevezna povezava]
-		$e$ je prevezna aka. most, "ce je $\Omega(G-e) > \Omega(G)$.
+	\begin{definition}[Prerezna povezava]
+		$e$ je prerezna (aka. most), "ce je $\Omega(G-e) > \Omega(G)$.
 	\end{definition}
 	\begin{definition}[k-povezan graf]
-		"Ce (ima vsaj $k+1$ vozli"s"c in) ne premore nobenega prereza mo"ci $< k$
+		"Ce (ima vsaj $k+1$ vozli"s"c in) ne premore nobenega prereza mo"ci $< k$ (prerez tu pomeni mno"zico odstranjenih vozli"s"c). Z drugimi besedami, $k$-povezanemu grafu moramo odstraniti najmanj $k$ vozli"s"c, da pove"camo "stevilo njegovih komponent.
 	\end{definition}
 	\begin{definition}[Povezanost $G$]
-		Najve"cji $k$ da je $G$ k-povezan. 
+		Najve"cji $k$ da je $G$ $k$-povezan. Ozna"cimo $\kappa(G)$
 	\end{definition}
 
 	\begin{theorem}[Menger, globalni]
@@ -471,11 +478,12 @@
 	\end{proof}
 	
 	\begin{definition}[Povezavna povezanost $G$]
-		Je najmanj"se "stevilo povezav, ki jih moramo odstraniti, da pove"camo "stevilo komponent $G$.
+		Je najmanj"se "stevilo povezav, ki jih moramo odstraniti, da pove"camo "stevilo komponent $G$. Ozna"cimo $\kappa '(G)$
 	\end{definition}
-
+	
 	\[ \kappa (G) \leq \kappa '(G) \leq \delta(G) \]
 	% delta je minimalna stopnja vozlisca v $G$
+	% kappa je povezanost, kappa' pa povezavna povezanost $G$
 	
 	\section{Drevesa}
 	% 16. 03. 2021
@@ -489,7 +497,7 @@
 		Vozli"s"ce stopnje 1.
 	\end{definition}
 	\begin{definition}[Drevo s korenom]
-		Drevo, v katerm izberemo vozli"s"ce in ga imenujemo ''koren''. Ponavadi ri"semo koren na vrhu ali dnu drevesa.
+		Drevo, v katerem izberemo vozli"s"ce in ga imenujemo ``koren''. Ponavadi ri"semo koren na vrhu ali dnu drevesa.
 	\end{definition}
 	
 	\begin{lemma}
@@ -506,7 +514,7 @@
 			Ker je $T$ drevo z vsaj 2 vozli"s"ci, ima list. "Ce odstranimo ta list, je $|V(T')| = |V(T)| - 1$ in $|E(T')| = |E(T)| - 1$. Po IP sledi dokaz.
 		\end{proof}
 	\end{lemma}
-	\begin{lemma}
+	\begin{lemma}\label{odstranjevanjeCiklov}
 		"Ce v poljubnem povezanem grafu odstranimo poljubno povezavo poljubnega cikla, bo graf ostal povezan.
 		\begin{proof}
 			Poglejmo $G-e$. Naj bosta $u,v \in V(G-e)$. Ker je $G$ povezan, obstaja v njem $uv$ pot $P$. \\
@@ -526,7 +534,7 @@
 			\item $G$ je drevo.
 			\item Za vsak par vozli"s"c $u$ in $v$, $u \neq v$, obstaja enoli"cna $uv$-pot.
 			\item $G$ je povezan in vsaka povezava je most.
-			\item $G$ je povezan in $|E(G) = |V(G)| - 1$.
+			\item $G$ je povezan in $|E(G)| = |V(G)| - 1$.
 		\end{enumerate}
 		\begin{proof}
 			(1) $\Rightarrow$ (2): "Ce imamo v $G$ dve poti, iz 2. poglavja vemo, da imamo cikel. \\
@@ -551,11 +559,14 @@
 	\begin{claim}
 		Graf je povezan natanko tedaj ko vsebuje vpeto drevo.
 		\begin{proof}
-			($\Rightarrow$) O"citno. \\
-			($\Leftarrow$) "Ce je $G$ drevo je sam sebi vpeto drevo. Sicer vsebuje cikel. Na povezavi cikla uporabimo lemo 3. Uni"cujemo cikle dokler ne dose"zemo drevesa. To drevo je vpeto.
+			($\Leftarrow$) O"citno. \\
+			($\Rightarrow$) "Ce je $G$ drevo je sam sebi vpeto drevo. Sicer vsebuje cikel. Na povezavi cikla uporabimo lemo \ref{odstranjevanjeCiklov}. Uni"cujemo cikle dokler ne dose"zemo drevesa. To drevo je vpeto.
 		\end{proof}
 	\end{claim}
-	$\tau(G) = $ "stevilo vpetih dreves $G$. \\
+	
+	\begin{definition}[$\tau(G)$]
+		"Stevilo vpetih dreves $G$.
+	\end{definition}
 	$\tau(\text{drevo}) = 1$ \\
 	$\tau(C_n) = n$ \\
 	$\tau(K_n) = \text{ne povem ampak "se danes boste zvedli }$ % glej Cayleyev izrek
@@ -579,7 +590,7 @@
 		$\tau(K_n) = n^{n-2}$
 	\end{theorem}
 	
-	Obstajajo tudi bijektivni dokazi Cayleyevega izreka (vpeta drevesa spravimo v bijektivno korespondenco z nekimi objekti, ki jih znamo pre"steti). En tak na"cin je Pr\"uferjeva koda.
+	Obstajajo (med drugim) bijektivni dokazi Cayleyevega izreka (vpeta drevesa spravimo v bijektivno korespondenco z nekimi objekti, ki jih znamo pre"steti). En tak na"cin je Pr\"uferjeva koda.
 	\begin{definition}[Pr\"uferjeva koda]
 		Imamo ozna"ceno drevo. Po vrsti odstranjujemo liste z najmanj"so oznako in v kodo postavimo oznako soseda od lista, ki smo ga odstranili. Ustavimo se, ko ostane ena povezava (zadnjega vozli"s"ca ne dodamo v kodo).
 	\end{definition}
@@ -640,7 +651,7 @@
 	\end{definition}
 
 	\begin{claim}
-		"Ce je $G$ graf, ki ima samao soda vozli"s"ca, potem $G$ premore dekompozicijo v cikle.	
+		"Ce je $G$ graf, ki ima sama soda vozli"s"ca, potem $G$ premore dekompozicijo v cikle.	
 		\begin{proof}
 			Vemo, da $G$ premore cikel; odstranimo ga in argument zaklju"cimo z indukcijo.
 		\end{proof}
@@ -665,7 +676,7 @@
 	
 	Ali je graf Eulerjev? Ali je graf Hamiltonov?
 	\begin{claim}
-		''Ali je graf Hamiltonov'' je NP-poln problem. % sad
+		``Ali je graf Hamiltonov?'' je NP-poln problem. % sad
 	\end{claim}
 
 	\begin{theorem}
@@ -772,7 +783,7 @@
 	\begin{claim}
 		Graf lahko vlo"zimo v ravnino natanko tedaj, ko ga lahko vlo"zimo na sfero.
 	\end{claim}
-	Ker je na sferi vsako lice omejeno, lahko sklepamo, da zunanje lice ravninske risbe ''ni ni"c posebnega''.
+	Ker je na sferi vsako lice omejeno, lahko sklepamo, da zunanje lice ravninske risbe ``ni ni"c posebnega''.
 	
 	\begin{definition}[Dol"zina lica]
 		"Stevilo povezav, ki jih prehodimo, ko obhodimo lice. Oznaka $l(f)$.
@@ -866,7 +877,7 @@
 				\item $K_{3,3}$ in $K_5$ nista ravninska
 				\item $G$ je ravninski $\iff$ vsaka njegova subdivizija je ravninska.
 			\end{itemize}
-			V drugo smer, je predolg % in potem se par minut flexa o tem kako so ''kratki dokazi'' dolgi 2-3h
+			V drugo smer, je predolg % in potem se par minut flexa o tem kako so ``kratki dokazi'' dolgi 2-3h
 		\end{proof}
 	\end{theorem}
 	\begin{theorem}[Wagner]
@@ -891,7 +902,7 @@
 	\end{definition}
 	Od tu dalje barvanje pomeni dobro barvanje.
 	
-	$\chi(K_n) = n$ \\ $\chi(C_n) = 2\text{, "ce je }n\text{ sod, sicer }3$ \\ $\chi(P) = 3$
+	$\chi(K_n) = n$ \\ $\chi(C_n) = 2\text{, "ce je }n\text{ sod, sicer }3$ \\ $\chi(P(5,2)) = 3$
 	
 	\begin{definition}[Barvni razredi]
 		Mno"zice vozli"s"c iste barve.
@@ -921,7 +932,7 @@
 	\begin{claim}
 		Po"zre"sni algoritem je lahko poljubno slab
 		\begin{proof}
-			Iz grafa $K_{n,n}$ odstranimo vse ''navpi"cne'' povezave. Po"zenemo po"zre"sni algoritem, ki vrne $\chi=n$. Vemo pa, da je $K_{n,n}$ dvodelen, torej bi morali dobiti $\chi=2$.
+			Iz grafa $K_{n,n}$ odstranimo vse ``navpi"cne'' povezave. Po"zenemo po"zre"sni algoritem, ki vrne $\chi=n$. Vemo pa, da je $K_{n,n}$ dvodelen, torej bi morali dobiti $\chi=2$.
 			\\ \includegraphics{navpicne} \\
 		\end{proof}
 	\end{claim}
@@ -973,7 +984,7 @@
 	\end{definition}
 	\begin{definition}[Kromati"cni indeks]
 		Najmanj"si $k$, za katerega obstaja barvanje povezav $G$. Ozna"cimo $\chi'(G)$.
-		% notacija, kjer crtica pomeni analogni koncept v povezavah (namesto vozli"s"cih) je ''precej standardiziran''
+		% notacija, kjer crtica pomeni analogni koncept v povezavah (namesto vozli"s"cih) je ``precej standardiziran''
 	\end{definition}
 
 	\begin{claim}
@@ -1000,7 +1011,7 @@
 			
 			Doka"zimo "se, da $\chi'(K_{2k+1}) \geq 2k+1$.
 			Recimo nasprotno: $K_{2k+1}$ smo uspeli po povezavah pobarvati s samo $2k$ barvami.
-			Koliko najve"c povezav lahko pobarvamo z isto barvo? Kve"cjemu $k$, ker vsaka povezava ''zasede'' dve kraji"s"ci zase.
+			Koliko najve"c povezav lahko pobarvamo z isto barvo? Kve"cjemu $k$, ker vsaka povezava ``zasede'' dve kraji"s"ci zase.
 			Ker imamo $2k$ barv, smo torej pobarvali $\leq (2k)*k$ povezav.
 			Na"se barvanje je pobarvalo kve"cjemu $2k^2$ povezav. Vemo pa, da je $$ |E(K_{2k+1})| = \binom{2k+1}{2} = \frac{(2k+1)*2k}{2} = 2k^2 + k$$
 			Torej imamo ve"c barv kot smo jih lahko pobarvali, kar je protislovje.
@@ -1009,7 +1020,7 @@
 			
 			Naj bo sedaj $n=2k$. Lahko ga dobimo iz $K_{2k-1}$ tako, da dodamo novo vozli"s"ce, ki ga pove"zemo z vsemi vozli"s"ci iz $K_{2k-1}$.
 			Sedaj povezave v $K_{2k-1}$ pobarvamo z zgoraj opisano konstrukcijo.
-			Vsakemu vozli"s"cu tedaj ''manjka'' ena barva; tista, s katero smo pobarvali temu vozli"s"cu nasprotno stranico. S to barvo pobarvamo povezavo do novo dodalega vozli"s"ca.
+			Vsakemu vozli"s"cu tedaj ``manjka'' ena barva; tista, s katero smo pobarvali temu vozli"s"cu nasprotno stranico. S to barvo pobarvamo povezavo do novo dodalega vozli"s"ca.
 			\\ \includegraphics{barvanje-kn} \\
 			S tem smo dodali vse prej obstoje"ce barve in dobili barvanje za $K_{2k}$. Torej smo porabili
 			$$ \Delta(K_{2k-1})+1 = \Delta(K_{2k}) $$
