@@ -3,6 +3,7 @@
 \usepackage[margin=0.7in]{geometry}
 \usepackage[parfill]{parskip}
 \usepackage[utf8]{inputenc}
+\usepackage{url, hyperref}
 % Related to math
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 
@@ -798,10 +799,10 @@
 	\end{definition}
 
 	\begin{claim}
-		"Ce je $G$ povezan ravninski graf vlo"zen v ravnino, potem je
+		"Ce je $G$ povezan ravninski graf, ki ni drevo, potem je
 		$$ |E(G)| \geq \frac{g(G)}{2}|F(G)| $$
 		\begin{proof}
-			"Ce je $G$ povezan graf vlo"zen v ravnino in $f$ lice vlo"zitve, potem je $f(g) \geq g(G)$. Po prej"snji trditvi dobimo:
+			"Ce je $G$ povezan graf s ciklom in $f$ lice vlo"zitve, potem je $l(f) \geq g(G)$. Po prej"snji trditvi dobimo:
 			$$ 2|E(G)| = \sum_{f \in F(G)}l(f) \geq \sum_{f \in F(G)} g(G) =|F(G)|*g(G) $$
 		\end{proof}
 	\end{claim}
